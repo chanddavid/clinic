@@ -8,5 +8,11 @@ def profile(request):
     return render(request,'profile.html')
 
 
-def logout(request):
-    return render(request,'logout.html')
+def login(request):
+    return render(request,'login.html')
+
+def forgot_password(request):
+    return render(request,'forgot-password.html')
+    
+def register(request):
+    return render(request,'register.html')
