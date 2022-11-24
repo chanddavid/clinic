@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block externalcss %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
+
+{% endblock %}
+
+{% block content %}
+
+<div id="wrapper">
+    {% include 'sidebar.html' %}
+    <div id="content-wrapper" class="d-flex flex-column">
+        <div id="content">
+            {% include 'topbar.html' %}
+            
+            <div class="container-fluid">
+
+                <div class="flexbox mb-4">
+                    <div id="add_staff" class="btn btn-primary btn-rounded ml-3 mt-3">
+                        <a href="" style="color:white"><i class="fas fa-user-plus" style="color:white"></i> Add Staff</a>
+                    </div>
+                </div>
+                <table id="example" class="table table-striped table-bordered" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Role</th>
+                            <th>Specialist</th>
+                            <th>District</th>
+                            <th>City</th>
+                            <th>Ward No.</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                    </tbody>
+
+                </table>
+            </div>
+        </div>
+        {% include 'AddStaff/addstaffform.html' %}
+        {% include 'footer.html' %}
+        
+    </div>
+</div>
+
+{% endblock%}
+
+{% block externaljs %}
+<script src="{% static 'js/datatables.js' %}"></script>
+<script src="{% static 'js/staffdetail/model/staffdetail_model.js' %}"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap4.min.js"></script>
+{% endblock %}
+
+
+<script>
+    
+</script>

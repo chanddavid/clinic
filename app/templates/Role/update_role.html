@@ -1,0 +1,22 @@
+<div class="edit_role_modal">
+    <div class="edit_modal_container">
+        <span class="edit_modal_container_close">&times;</span>
+        <h3 class="p-1">Update Form</h3>
+        <hr style="border: 1px solid red;">
+        <form action=" " method="post" id="edit_role" enctype="multipart/formdata">
+            {% csrf_token %}
+            <fieldset>
+                <div>
+                    <input type="hidden" id="roleId" name="roleId" style="display: none">
+                </div>
+                <!-- Text input-->
+                <div class="mb-3">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="edit_name" name="edit_name">
+                </div>
+                <button type="submit" class="btn btn-primary mt-3">Submit</button>
+
+            </fieldset>
+        </form>
+    </div>
+</div>

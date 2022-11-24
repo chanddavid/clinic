@@ -1,0 +1,110 @@
+<div class="device_modal">
+    <div class="modal_container">
+        <span class="modal_container_close">&times;</span>
+        <h3 class="p-1">Add New Patient's</h3>
+        <hr style="border: 1px solid red;">
+        <form action=" " method="post" id="post_data" enctype="multipart/formdata">
+            <fieldset>
+                <!-- Text input-->
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label class="control-label">Name</label>
+                            <div class="inputGroupContainer">
+                                <div class="input-group">
+                                    <input name="name" placeholder="Name" class="form-control" type="text">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label class="control-label">Age</label>
+                            <div class="inputGroupContainer">
+                                <div class="input-group">
+                                    <input name="age" placeholder="Age" class="form-control" type="text">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label class=" control-label">Address</label>
+                            <div class=" inputGroupContainer">
+                                <div class="input-group">
+                                    <input name="address" placeholder="Address" class="form-control" type="text">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label class="control-label">Phone</label>
+                            <div class="inputGroupContainer">
+                                <div class="input-group">
+                                    <input name="phone" placeholder="(+977)" class="form-control" type="text">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label class="control-label">Gender</label>
+                            <div class="selectContainer">
+                                <div class="input-group">
+                                    <select name="state" class="form-control selectpicker">
+                                        <option>Male</option>
+                                        <option>Female</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label class=" control-label">Doctor</label>
+                            <div class=" inputGroupContainer">
+                                <div class="input-group">
+                                    <input name="doctor" placeholder="Doctor" class="form-control" type="text">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label class="control-label">Date</label>
+                            <div class="inputGroupContainer">
+                                <div class="input-group">
+
+                                    <input name="date" placeholder="Auto Today" class="form-control" type="text">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label class="control-label">Charge</label>
+                            <div class=" inputGroupContainer">
+                                <div class="input-group">
+
+                                    <input name="zip" placeholder="Rs." class="form-control" type="text">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label"></label>
+                    <div>
+                        <button type="submit" class="btn btn-primary">Add Patient/Print</button>
+                        <button class="btn btn-secondary" type="reset">Reset</button>
+                    </div>
+                </div>
+
+            </fieldset>
+        </form>
+    </div>
+</div>

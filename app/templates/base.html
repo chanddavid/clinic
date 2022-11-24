@@ -21,58 +21,59 @@
     <!-- Custom styles for this template-->
     <link href="{% static 'css/sb-admin-2.min.css' %}" rel="stylesheet">
     <link href="{% static 'css/profile.css' %}" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
+    
+    <style>
+        .content-wrapper {
+            margin-left: 17%;
+        }
+    </style>
+    {% block externalcss %}
+  
+    {% endblock %}
 
 </head>
 
 <body id="page-top">
 
-    <!-- Page Wrapper -->
-    <div id="wrapper">
+    {% block content %}
 
-        {% include 'sidebar.html' %}
-        <div id="content-wrapper" class="d-flex flex-column">
-            <div id="content">
-                {% include 'topbar.html' %}
+    {% endblock %}
 
-                {% block homecontent %}
-                {% endblock %}
-
-                {% block profile %}
-                {% endblock %}
-
-                {% block logout %}
-                {% endblock %}
-                
-            </div>     
-            {% include 'footer.html' %}
-        </div>
-    </div>
-    
-
-    <!-- Scroll to Top Button-->
     <a class="scroll-to-top rounded" href="#page-top">
         <i class="fas fa-angle-up"></i>
     </a>
 
 
-    <!-- Bootstrap core JavaScript-->
-    <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
-    <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
-
-    <!-- Core plugin JavaScript-->
-    <script src="{% static 'vendor/jquery-easing/jquery.easing.min.js' %}"></script>
-
-    <!-- Custom scripts for all pages-->
-    <script src="{% static 'js/sb-admin-2.min.js' %}"></script>
-
-    <!-- Page level plugins -->
-    <script src="{% static 'vendor/chart.js/Chart.min.js' %}"></script>
-
-    <!-- Page level custom scripts -->
-    <script src="{% static 'js/demo/chart-area-demo.js' %}"></script>
-    <script src="{% static 'js/demo/chart-pie-demo.js' %}"></script>
-    <script src="https://kit.fontawesome.com/cab915e289.js" crossorigin="anonymous"></script>
-
+    
+    
 </body>
+<!-- Bootstrap core JavaScript-->
+<script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+
+
+<script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+<!-- Core plugin JavaScript-->
+<script src="{% static 'vendor/jquery-easing/jquery.easing.min.js' %}"></script>
+
+<!-- Custom scripts for all pages-->
+<script src="{% static 'js/sb-admin-2.min.js' %}"></script>
+
+<!-- Page level plugins -->
+<script src="{% static 'vendor/chart.js/Chart.min.js' %}"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+<script src="{% static 'vendor/jquery-validation/dist/jquery.validate.min.js' %}"></script>
+
+
+
+
+
+<!-- Page level custom scripts -->
+<script src="{% static 'js/demo/chart-area-demo.js' %}"></script>
+<script src="{% static 'js/demo/chart-pie-demo.js' %}"></script>
+<script src="https://kit.fontawesome.com/cab915e289.js" crossorigin="anonymous"></script>
+{% block externaljs %}
+{% endblock %}
 
 </html>

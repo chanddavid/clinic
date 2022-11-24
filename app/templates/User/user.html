@@ -1,0 +1,135 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block externalcss %}
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
+<link href="{% static 'vendor/datatables/datatables.min.css' %}" rel="stylesheet" />
+
+
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+{% endblock %}
+
+{% block content %}
+
+<div id="wrapper">
+    {% include 'sidebar.html' %}
+    <div id="content-wrapper" class="d-flex flex-column">
+        <div id="content">
+            {% include 'topbar.html' %}
+
+            <div class="container-fluid">
+
+                <div class="flexbox mb-4">
+                    <div id="add_user" class="btn btn-primary btn-rounded ml-3 mt-3">
+                        <a href="" style="color:white"><i class="fas fa-user-plus" style="color:white"></i> Add User</a>
+                    </div>
+                </div>
+                <div class="input-group-icon input-group-icon-left pt-4 mb-4">
+                    <span class="input-icon input-icon-right font-16 pt-4"><i class="ti-search"></i></span>
+                    <input class="form-control search-input-datatable" type="text" placeholder="Search..."
+                        id="searchbar">
+                </div>
+                <div class="table-responsive row">
+                    <table id="user_datatable" class=" table table-striped table-bordered" style="width:100%">
+                        <thead class="thead-default thead-lg">
+                            <tr>
+                                <th>ID</th>
+                                <th>Username</th>
+                                <th>Fullname</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Specilist</th>
+                                <!-- <th>Role</th> -->
+                                <th>District</th>
+                                <th>City</th>
+                                <th>Ward</th>
+                                <th>isSuperUser</th>
+                                <th>isActive</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                        </tbody>
+
+                    </table>
+                </div>
+
+            </div>
+        </div>
+        {% include 'User/create_user_modal.html' %}
+        {% include 'User/update_user_modal.html' %}
+        {% include 'footer.html' %}
+
+    </div>
+</div>
+
+{% endblock%}
+
+{% block externaljs %}
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+    <script src="{% static 'js/user/model/user_script_model.js' %}"></script>
+    <script src="{% static 'vendor/datatables/datatables.min.js' %}"></script>
+    <script src="{% static 'js/user/user_script.js' %}"></script>
+
+    <script>
+        $(function () {
+            $('#post_user').validate({
+                rules: {
+                    user_name: {
+                        required: true,
+                        remote: {
+                            url: "{% url 'check_username' %}",
+                            type: "POST",
+                            data: {
+                                user_name: $('.user_name').val(),
+                                csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val(),
+                            },
+                        }
+                    },
+                    email: {
+                        required: true,
+                        email: true,
+                        remote: {
+                            url: "{% url 'check_email' %}",
+                            type: "POST",
+                            data: {
+                                email: $('.email').val(),
+                                csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val(),
+                            }
+                        },
+                    },
+                    phone_number: {
+                        required: true
+                    },
+                    password: {
+                        required: true,
+                        minlength: 6
+                    },
+                    confirm_password: {
+                        required: true,
+                        equalTo: "#password"
+                    },
+                    phone_number: {
+                        required: true
+                    },
+                },
+                messages: {
+                    user_name: {
+                        remote: "Username already exists."
+                    },
+                    email: {
+                        remote: "This email is already taken."
+                    },
+                },
+                highlight: function (e) {
+                    $(e).closest(".form-group").addClass("has-error")
+                },
+                unhighlight: function (e) {
+                    $(e).closest(".form-group").removeClass("has-error")
+                },
+            });
+        });
+    </script>
+{% endblock %}

@@ -1,0 +1,66 @@
+{% load widget_tweaks %}
+<div class="edit_user_modal">
+    <div class="edit_modal_container">
+        <span class="edit_modal_container_close">&times;</span>
+
+        <div class="edit_modal_body">
+            <div class="edit_model_body_header">
+                <h2 class="ibox-title mb-5 modal_title">Edit User</h2>
+                <div class="border-bottom"></div>
+            </div>
+
+            <form class="form-info" action="" id="edit_user">
+                {% csrf_token %}
+                <div class="ibox-body">
+                    <div class="row">
+                        <div>
+                            <input type="hidden" id="userId" name="userId" style="display: none">
+                        </div>
+
+                        <div class="col-sm-6 form-group mb-4">
+                            <label>User Name</label>
+                            {% render_field form.user_name class="form-control" type="text" placeholder="User Name" id="edit_user_name" name="user_name" %}
+                        </div>
+                        <div class="col-sm-6 form-group mb-4">
+                            <label>Full Name</label>
+                            {% render_field form.full_name class="form-control" type="text" placeholder="Full Name" id="edit_full_name" name="full_name" %}
+                        </div>
+                        <div class="col-sm-6 form-group mb-4">
+                            <label>Email</label>
+                            {% render_field form.email class="form-control" type="email" placeholder="Email" id="edit_email" name="email" %}
+                        </div>
+                        <div class="col-sm-6 form-group mb-4">
+                            <label>Phone</label>
+                            {% render_field form.phone_number class="form-control" type="text" placeholder="Phone" id="edit_phone_number" %}
+                        </div>
+                        <div class="col-sm-6  form-group mb-4">
+                            <label>Specilist</label>
+                            {% render_field form.specilist class="form-control" type="text" placeholder="Specilist" id="edit_specilist" name="specilist"%}
+                        </div>
+                        <!-- <div class="col-sm-6  form-group mb-4">
+                            <label>Role</label>
+                            {% render_field form.role class="form-control" type="text" placeholder="Role" id="edit_role" name="role"%}
+                        </div> -->
+                        <div class="col-sm-6  form-group mb-4">
+                            <label>District</label>
+                            {% render_field form.district class="form-control" type="text" placeholder="District" id="edit_district" name="district"%}
+                        </div>
+                        <div class="col-sm-6  form-group mb-4">
+                            <label>City</label>
+                            {% render_field form.city class="form-control" type="text" placeholder="City" id="edit_city" name="city"%}
+                        </div>
+                        <div class="col-sm-6  form-group mb-4">
+                            <label>Ward</label>
+                            {% render_field form.ward class="form-control" type="text" placeholder="Ward" id="edit_ward" name="ward"%}
+                        </div> 
+                    </div>
+                    
+                </div>
+                <div class="ibox-footer">
+                    <button class="btn btn-info mr-2" type="submit">Update</button>
+{#                    <button class="btn btn-secondary" type="reset">Cancel</button>#}
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

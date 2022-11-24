@@ -1,0 +1,35 @@
+<div class="add_staff_modal">
+    <div class="modal_container">
+        <span class="modal_container_close">&times;</span>
+        <h3 class="ibox-title mb-3 modal_title">User Roles Form</h3>
+        <hr style="border: 1px solid red;">
+        <form action=" " method="post" id="post_user_roles" enctype="multipart/formdata">
+            {% csrf_token %}
+            <div class="ibox-body">
+                <div class="row">
+                    <div class="col-sm-12 form-group mb-4">
+                        <label>User: </label>
+                        <select name="user" id="user" class="form-control" required="">
+                            <option value="" selected="">---------</option>
+                            {% for i in data %}
+                            <option>{{i.user_name}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="col-sm-12 form-group mb-4">
+                        <label>Roles: </label>
+                        <select name="role" id="role" class="form-control" required="">
+                            <option value="" selected="">---------</option>
+                            {% for j in data1 %}
+                            <option>{{j.name}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="ibox-footer">
+                <button class="btn btn-info mr-2" type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
